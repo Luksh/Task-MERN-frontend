@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import TaskForm from "./taskForm";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const Dashboard = () => {
         <h1>Welcome {user && user.name}</h1>
         <p>Tasks Dashboard</p>
       </section>
+      <TaskForm />
     </>
   );
 };
