@@ -13,6 +13,18 @@ const createTask = async (taskData, token) => {
   return response.data;
 };
 
-const taskService = { createTask };
+const getTasks = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.get(API_URL, config);
+
+  return response.data;
+};
+
+const taskService = { createTask, getTasks };
 
 export default taskService;
