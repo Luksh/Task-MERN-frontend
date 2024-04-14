@@ -17,7 +17,19 @@ const TaskList = () => {
     return () => dispatch(reset());
   }, [navigate, isError, message, dispatch]);
 
-  return <div>TaskList</div>;
+  return isLoading ? (
+    <Spinner />
+  ) : (
+    <section className="content">
+      {tasks.length > 0 && (
+        <div className="tasks">
+          {tasks.map((task) => (
+            <TaskItem key={task._id} task={task} />
+          ))}
+        </div>
+      )}
+    </section>
+  );
 };
 
 export default TaskList;
